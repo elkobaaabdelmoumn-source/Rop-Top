@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="styles.css">
+
+  <!-- HEADER -->
+  <header>
+    <h1 id="title">Tienda Profesional de Zapatos</h1>
+    <nav>
+      <button type="button" onclick="show('shop')">Tienda</button>
+      <button type="button" onclick="show('cart')">Carrito (<span id="count">0</span>)</button>
+      <button type="button" onclick="show('admin')">Admin</button>
+    </nav>
+  </header>
+
+  <!-- CONTENEDORES DE PÁGINAS -->
+  <main>
+    <!-- TIENDA -->
+    <section id="shop" class="page active" aria-label="Tienda de productos">
+      <ul id="product-list"></ul>
+    </section>
+
+    <!-- CARRITO -->
+    <section id="cart" class="page" aria-label="Carrito de compras">
+      <ul id="cart-list"></ul>
+      <div id="cart-footer"></div>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="admin" class="page" aria-label="Panel de administración"></section>
+  </main>
+
+  <!-- MENSAJES DE ALERTA / CONFIRMACIÓN -->
+  <div id="messages" role="alert" aria-live="polite"></div>
+
+  <!-- TEMPLATES PARA CLONAR -->
+  <template id="product-template">
+    <li class="product">
+      <div class="label-offer"></div>
+      <img class="mainImg" src="" alt="">
+      <h3 class="name"></h3>
+      <p class="price"></p>
+      <label>Talla: </label>
+      <select class="size-select"></select>
+      <input type="number" class="qty" min="1" value="1">
+      <button type="button" class="add-cart">🛒 Añadir</button>
+    </li>
+  </template>
+
+  <template id="cart-item-template">
+    <li class="cart-item">
+      <span class="item-info"></span>
+      <button type="button" class="remove-item">❌</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
